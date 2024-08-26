@@ -1,0 +1,34 @@
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    #crypto-list {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: space-between; /* Distribuir elementos a lo largo del contenedor */
+    }
+
+    .crypto-item {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        min-width: 250px; /* Ajusta el ancho mínimo */
+        max-width: 300px; /* Define un ancho máximo para evitar que los elementos se estiren demasiado */
+    }
+
+    .crypto-item img {
+        width: 70px;
+        height: 70px;
+        margin-right: 1.5rem;
+        border-radius: 50%;
+        border: 2px solid #4a90e2;
+    }
+
+    .crypto-item h2 {
+        font-size: 1.6rem; /* Aumenta el tamaño de la fuente para pantallas más grandes */
+    }
+}
