@@ -5,7 +5,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
-        justify-content: space-between; /* Distribuir elementos a lo largo del contenedor */
+        justify-content: space-between; 
     }
 
     .crypto-item {
@@ -31,4 +31,10 @@
     .crypto-item h2 {
         font-size: 1.6rem; /* Aumenta el tamaño de la fuente para pantallas más grandes */
     }
+    #modal-details img{
+        width: 100%;
+        height: 30%;
+    
+    }
+    
 }

@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let listaCriptos = document.getElementById('crypto-list');
     let barraBusqueda = document.getElementById('search-bar');
     let filtroCategoria = document.getElementById('filter-category');
+    let modal = document.getElementById('crypto-modal');
+    let modalDetails = document.getElementById('modal-details');
+    let closeBtn = document.querySelector('.close-btn');
     
     let todasLasCriptos = []; 
 
@@ -29,10 +32,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>Precio: $${cripto.current_price}</p>
                 </div>
             `;
+            itemLista.addEventListener('click', () => abrirModal(cripto)); // Evento para abrir modal
             listaCriptos.appendChild(itemLista);
         });
     };
-    
+
+    let abrirModal = (cripto) => {
+        modalDetails.innerHTML = `
+            <h2>${cripto.name}</h2>
+            <img src="${cripto.image}" alt="${cripto.name}">
+            <p>Precio actual: $${cripto.current_price}</p>
+            <p>Capitalización de mercado: $${cripto.market_cap}</p>
+            <p>Volumen en 24h: $${cripto.total_volume}</p>
+            <p>Máximo en 24h: $${cripto.high_24h}</p>
+            <p>Mínimo en 24h: $${cripto.low_24h}</p>
+        `;
+        modal.style.display = 'block'; // Mostrar el modal
+    };
+
+    let cerrarModal = () => {
+        modal.style.display = 'none'; // Ocultar el modal
+    };
+
+    closeBtn.addEventListener('click', cerrarModal);
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            cerrarModal();
+        }
+    });
+
     let filtrarCriptos = () => {
         let terminoBusqueda = barraBusqueda.value.toLowerCase();
         let categoriaSeleccionada = filtroCategoria.value.toLowerCase();
@@ -43,13 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 cripto.symbol.toLowerCase().includes(terminoBusqueda);
 
             let coincideCategoria = true;
-            if (categoriaSeleccionada === 'defi') {
+            /*if (categoriaSeleccionada === 'defi') {
                 coincideCategoria = cripto.categories && cripto.categories.includes('defi');
             } else if (categoriaSeleccionada === 'stablecoin') {
                 coincideCategoria = cripto.name.toLowerCase().includes('usd') || cripto.name.toLowerCase().includes('tether');
             } else if (categoriaSeleccionada === 'nft') {
                 coincideCategoria = cripto.name.toLowerCase().includes('nft') || cripto.name.toLowerCase().includes('ape');
-            }
+            }*/
 
             return coincideBusqueda && coincideCategoria;
         });

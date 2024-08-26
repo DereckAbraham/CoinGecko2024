@@ -11,23 +11,34 @@
     <link rel="stylesheet" href="./css/pantallaThree.css">
 </head>
 <body>
-        <header>
-            <h1>CoinGeck - Información de Criptomonedas</h1>
-            <input type="text" id="search-bar" placeholder="Buscar criptomoneda...">
-            <select id="filter-category">
-                <option value="">Selecciona una categoría</option>
-                <option value="stablecoins">Stablecoins</option>
-                <option value="decentralized-finance-defi">DeFi</option>
-                <option value="non-fungible-tokens-nft">NFT</option>
-                <option value="smart-contract-platform">Smart Contract Platforms</option>
-                <option value="exchange-based-tokens">Exchange-Based Tokens</option>
-                <option value="meme">Meme Coins</option>
-                <option value="privacy-coins">Privacy Coins</option>
-            </select>
-        </header>
-        <main>
-            <ul id="crypto-list"></ul>
-        </main>
+    <header>
+        <h1>CoinGeck - Información de Criptomonedas</h1>
+        <input type="text" id="search-bar" placeholder="Buscar criptomoneda...">
+        <select id="filter-category">
+            <option value="">Selecciona una categoría</option>
+            <option value="stablecoins">Stablecoins</option>
+            <option value="decentralized-finance-defi">DeFi</option>
+            <option value="non-fungible-tokens-nft">NFT</option>
+            <option value="smart-contract-platform">Smart Contract Platforms</option>
+            <option value="exchange-based-tokens">Exchange-Based Tokens</option>
+            <option value="meme">Meme Coins</option>
+            <option value="privacy-coins">Privacy Coins</option>
+        </select>
+    </header>
+    <main>
+        <ul id="crypto-list"></ul>
+    </main>
+
+    <!-- Ventana Modal -->
+    <div id="crypto-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-details">
+                <!-- Aquí se insertará el contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
     <script src="./js/main.js"></script>
 </body>
     <!--CREATE BY: 
